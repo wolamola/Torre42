@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/27 14:48:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:32:20 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ const char *str = "Hola, Mundo!";
     else
         printf("Subcadena no encontrada.\n");
 
-	*/
+	
 	////ft_atoi
 
 	const char *str1 = "   -123456";
@@ -180,11 +180,25 @@ const char *str = "Hola, Mundo!";
 	printf("Cadena: '%s', Entero: %d\n", str2, ft_atoi(str2)); // 42
 	printf("Cadena: '%s', Entero: %d\n", str3, ft_atoi(str3)); // 78
 	printf("Cadena: '%s', Entero: %d\n", str4, ft_atoi(str4)); // 0
-
-	/*
+*/
+	
 	////ft_calloc
-	printf("ft_calloc(128): %d\n", ft_calloc(128));
+	size_t n = 5;
+    int *arr = ft_calloc(n, sizeof(int));
 
+    if (!arr)
+    {
+        printf("Error al asignar memoria\n");
+        return (1);
+    }
+
+    for (size_t i = 0; i < n; i++)
+        printf("arr[%zu] = %d\n", i, arr[i]);
+
+    free(arr);
+ 
+
+/*
 
 
 

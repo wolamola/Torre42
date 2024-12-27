@@ -6,13 +6,13 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/11 18:36:14 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:27:00 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *o);
+int		ft_strlen(const char *o);
 
 size_t	ft_strlcat(char *d, const char *o, size_t dsize)
 {
