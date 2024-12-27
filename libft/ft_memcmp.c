@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/26 19:32:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/19 15:19:47 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
-	const char	*last_char = NULL;
+	unsigned char *p1 = (unsigned char *)ptr1;
+	unsigned char *p2 = (unsigned char *)ptr2;
 
-	while (*s)
+	while (n--)
 	{
-		if (*s == (char)c)
-			last_char = s;
-		s++;
+		if (*p1 != *p2)
+		{
+			return(*p1 - *p2);
+		}
+		p1++;
+		p2++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	if (last_char)
-		return ((char *)last_char);
-	else
-		return (NULL);
+	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/13 16:36:20 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/27 14:48:07 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+
 #include "libft.h"
 
 
@@ -95,7 +96,7 @@ int main(void)
 	printf("Carácter '%c': %s\n", c1, result1 ? result1 : "No encontrado");
 	printf("Carácter '%c': %s\n", c2, result2 ? result2 : "No encontrado");
 	printf("Carácter '\\0': %s\n", result3 ? result3 : "No encontrado");
-*/
+
 
 const char *str = "Hola, Mundo!";
 	char c1 = 'o';
@@ -111,15 +112,83 @@ const char *str = "Hola, Mundo!";
 	printf("Carácter '%c': %s\n", c2, result2 ? result2 : "No encontrado");
 	printf("Carácter '\\0': %s\n", result3 ? result3 : "No encontrado");
 
+	////ft_strncmp
 
-/*
-	
-	printf("ft_strncmp(128): %d\n", ft_strncmp(128));
-	printf("ft_memchr(128): %d\n", ft_memchr(128));
-	printf("ft_memcmp(128): %d\n", ft_memcmp(128));
-	printf("ft_strnstr(128): %d\n", ft_strnstr(128));
-	printf("ft_atoi(128): %d\n", ft_iatoi(128));
+	const char *str1 = "Hola, Mundo!";
+    const char *str2 = "Hola, Mundo!";
+    const char *str3 = "Hola, Amigos!";
+
+    int result1 = ft_strncmp(str1, str2, 5); // Comparar los primeros 5 caracteres
+    int result2 = ft_strncmp(str1, str3, 5); // Comparar los primeros 5 caracteres
+    int result3 = ft_strncmp(str1, str3, 10); // Comparar los primeros 10 caracteres
+
+    printf("Comparando '%s' con '%s' (5 caracteres): %d\n", str1, str2, result1);
+    printf("Comparando '%s' con '%s' (5 caracteres): %d\n", str1, str3, result2);
+    printf("Comparando '%s' con '%s' (10 caracteres): %d\n", str1, str3, result3);
+
+	////ft_memchr
+
+	const char arr[] = "Hoilia, Hiola!";
+    char c1 = 'i';
+    char c2 = 'z';
+    char c3 = '\0';
+
+    char *result1 = ft_memchr(arr, c1, 12);
+    char *result2 = ft_memchr(arr, c2, 12);
+    char *result3 = ft_memchr(arr, c3, 12);
+
+    printf("Arreglo original: %s\n", arr);
+    printf("Buscando '%c': %s\n", c1, result1 ? result1 : "No encontrado");
+    printf("Buscando '%c': %s\n", c2, result2 ? result2 : "No encontrado");
+    printf("Buscando '\\0': %s\n", result3 ? result3 : "No encontrado");
+	////ft_memcmp
+	char str1[] = "Hola";
+	char str2[] = "Holb";
+    
+    // Comparando los bloques de memoria
+	int result1 = ft_memcmp(str1, str2, 4);  // Comparar los primeros 4 bytes
+	int result2 = ft_memcmp(str1, str2, 4);     // Usar la función estándar memcmp
+
+    // Imprimir los resultados
+	printf("ft_memcmp result: %d\n", result1);
+	printf("ft_memcmp result: %d\n", result2);
+
+
+	////ft_strnstr
+
+    const char *str = "Hola, Mundo!";
+    const char *needle = "Mundo";
+    size_t len = 8; // Limitar la búsqueda a los primeros 12 caracteres
+
+    char *result = ft_strnstr(str, needle, len);
+    
+    printf("Cadena original: %s\n", str);
+    if (result)
+        printf("Subcadena encontrada: %s\n", result);
+    else
+        printf("Subcadena no encontrada.\n");
+
+	*/
+	////ft_atoi
+
+	const char *str1 = "   -123456";
+	const char *str2 = "42";
+	const char *str3 = "    +78abc";
+	const char *str4 = "abc123";
+
+	printf("Cadena: '%s', Entero: %d\n", str1, ft_atoi(str1)); // -12345
+	printf("Cadena: '%s', Entero: %d\n", str2, ft_atoi(str2)); // 42
+	printf("Cadena: '%s', Entero: %d\n", str3, ft_atoi(str3)); // 78
+	printf("Cadena: '%s', Entero: %d\n", str4, ft_atoi(str4)); // 0
+
+	/*
+	////ft_calloc
 	printf("ft_calloc(128): %d\n", ft_calloc(128));
+
+
+
+
+	
 	printf("ft_strdup(128): %d\n", ft_strdup(128));
 	*/
 	return 0;

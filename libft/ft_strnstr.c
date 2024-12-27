@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/26 19:32:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:46:09 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *small, size_t n)
 {
-	const char	*last_char = NULL;
+	size_t	i;
+	size_t	j;
 
-	while (*s)
+	if (*small == '\0')
+		return ((char *)big);
+
+	i = 0;
+	while (big[i] != '\0' && i < n)
 	{
-		if (*s == (char)c)
-			last_char = s;
-		s++;
+		if (big[i] == small[0])
+		{
+			j=0;
+
+			while (small[j] != '\0' && big[i+j] == small[j] && (i + j) < n)
+			{
+				if (small[j+1] == '\0')
+					return ((char *)&big[i]);
+				j++;
+			}
+		}
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	if (last_char)
-		return ((char *)last_char);
-	else
-		return (NULL);
+	return (NULL);
 }

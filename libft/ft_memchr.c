@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/26 19:32:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:44:30 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const char	*last_char = NULL;
+	const unsigned char *ptr = (const unsigned char *)s;
 
-	while (*s)
+	while (n--)
 	{
-		if (*s == (char)c)
-			last_char = s;
-		s++;
+		if (*ptr == (unsigned char)c)
+			return ((void *)ptr);
+		ptr++;
 	}
-	if (c == '\0')
-		return ((char *)s);
-	if (last_char)
-		return ((char *)last_char);
-	else
-		return (NULL);
+	return (NULL);
 }

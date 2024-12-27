@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/13 16:31:50 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2024/12/26 20:37:30 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_memcmp(const void *ptr1, const void *ptr2, size_t n);
+char	*ft_strnstr(const char *str, const char *needle, size_t n);
+int		ft_atoi(const char *str);
 
-//strncmp.c
-//memchr.c
-//memcmp.c
-//strnstr.c
-//atoi.c
+
 //calloc.c
 //strdup.c
 
