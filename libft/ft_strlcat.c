@@ -6,13 +6,13 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/27 15:27:00 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:35 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *o);
+size_t	ft_strlen(const char *o);
 
 size_t	ft_strlcat(char *d, const char *o, size_t dsize)
 {
@@ -35,3 +35,18 @@ size_t	ft_strlcat(char *d, const char *o, size_t dsize)
 	d[d_len + i] = '\0';
 	return (total_len);
 }
+
+/*
+int main(void)
+{
+	char d[20] = "Hello, ";
+	char o[] = "world!";
+	size_t dsize = sizeof(d);
+
+	size_t len = ft_strlcat(d, o, dsize);
+	printf("Fuente: %s\n", o);
+	printf("Destino (concatenado): %s\n", d);
+	printf("Longitud total esperada: %zu\n", len);
+	return (0);
+}
+*/

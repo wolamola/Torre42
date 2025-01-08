@@ -1,49 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2025/01/08 15:40:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:33 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	size_t	i;
+	char	*s2;
 
-	p1 = (unsigned char *)ptr1;
-	p2 = (unsigned char *)ptr2;
-	while (n--)
+	i = 0;
+	while (s1[i] != '\0')
+		i++;
+	s2 = malloc(sizeof(char) * (i + 1));
+	if (s2 == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		if (*p1 != *p2)
-		{
-			return (*p1 - *p2);
-		}
-		p1++;
-		p2++;
+		s2[i] = s1[i];
+		i++;
 	}
-	return (0);
+	s2[i] = '\0';
+	return (s2);
 }
-
 /*
 int main(void)
 {
-	char str1[] = "Hola";
-	char str2[] = "Holb";
+	char s1[] = "Enhorabuena, has terminado la primera parte";
+	char *s2;
 
-	// Comparando los bloques de memoria
-	int result1 = ft_memcmp(str1, str2, 4);
-	int result2 = ft_memcmp(str1, str2, 4);
+	s2 = ft_strdup(s1);
+	printf("Mi propio s2 es igual a=%s\n", s2);
 
-	//Imprimir los resultados
-	printf("ft_memcmp result: %d\n", result1);
-	printf("ft_memcmp result: %d\n", result2);
+	printf("Mi propio s2 es igual a=%s\n", ft_strdup(s1));
+
 	return (0);
 }
 */

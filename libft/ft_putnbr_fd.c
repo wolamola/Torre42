@@ -1,49 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2025/01/08 15:40:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:31 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
-
-	p1 = (unsigned char *)ptr1;
-	p2 = (unsigned char *)ptr2;
-	while (n--)
+	if (n == INT_MIN)
 	{
-		if (*p1 != *p2)
-		{
-			return (*p1 - *p2);
-		}
-		p1++;
-		p2++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }
 
 /*
 int main(void)
 {
-	char str1[] = "Hola";
-	char str2[] = "Holb";
+	int fd;
 
-	// Comparando los bloques de memoria
-	int result1 = ft_memcmp(str1, str2, 4);
-	int result2 = ft_memcmp(str1, str2, 4);
+	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
+	{
+		write(2, "Error al abrir el archivo\n", 26);
+		return (1);
+	}
 
-	//Imprimir los resultados
-	printf("ft_memcmp result: %d\n", result1);
-	printf("ft_memcmp result: %d\n", result2);
+	ft_putnbr_fd(12345, fd);
+	ft_putchar_fd('\n', fd);
+	ft_putnbr_fd(-98765, fd);
+	ft_putchar_fd('\n', fd);
+	ft_putnbr_fd(INT_MIN, fd);
+	ft_putchar_fd('\n', fd);
+
+	close(fd);	
 	return (0);
 }
 */

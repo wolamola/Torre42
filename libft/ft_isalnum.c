@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/11/29 20:28:33 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:19 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,11 @@ int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }
+
+/*
+int main(void)
+{
+	printf("ft_isalnum('!'): %d\n", ft_isalnum('!'));
+	return (0);
+}
+*/

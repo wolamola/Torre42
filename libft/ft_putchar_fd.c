@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Makefile                                           :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/11/29 19:47:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:30 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-SRCS_DIR = ./
-sdf
-SRC = ft_isalpha.c \
-      ft_isdigit.c \
-      ft_isalnum.c \
-      ft_isascii.c
+#include "libft.h"
 
-SRCS = $(addprefix $(SRCS_DIR), $(SRC))
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
+}
 
-SRCS_OBJ = $(SRCS:.c=.o)
+/*
+int main(void)
+{
+	int fd;
 
-HEADER_DIR = ./includes/
+	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
+	{
+		write(2, "Error al abrir el archivo\n", 26);
+		return (1);
+	}
 
-//DICT_DIR = ./
+	ft_putchar_fd('H', fd);
+	ft_putchar_fd('o', fd);
+	ft_putchar_fd('l', fd);
+	ft_putchar_fd('a', fd);
+	ft_putchar_fd('\n', fd);
 
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror
-
-OUTPUT = libft.a
-
-all : $(OUTPUT)
-
-.c.o:
-	${CC} ${CFLAGS} -I ${HEADER_DIR} -c $< -o ${<:.c=.o}
-
-$(OUTPUT) : $(SRCS_OBJ)
-	${CC} ${CFLAGS} -o ${OUTPUT} ${SRCS_OBJ}
-
-clean :
-	rm -f $(SRCS_OBJ)
-
-fclean : clean
-	rm -f $(OUTPUT)
-
-re : fclean all
-
-.PHONY : all clean fclean re
+	close(fd);
+	return (0);
+}
+*/

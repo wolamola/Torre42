@@ -1,48 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2025/01/08 15:35:28 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:37 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destination, const void *origin, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char		*d;
-	const unsigned char	*o;
-	size_t				i;
+	char	*result;
+	size_t	counter;
+	size_t	length;
 
-	if (!destination && !origin)
+	if (s == NULL || f == NULL)
 		return (NULL);
-	d = (unsigned char *)destination;
-	o = (const unsigned char *)origin;
-	i = 0;
-	while (i < n)
+	length = ft_strlen(s);
+	result = (char *)malloc(sizeof(char) * (length + 1));
+	if (result == NULL)
+		return (NULL);
+	counter = 0;
+	while (s[counter] != '\0')
 	{
-		d[i] = o[i];
-		i++;
+		result[counter] = f(counter, s[counter]);
+		counter++;
 	}
-	return (destination);
+	result[counter] = '\0';
+	return (result);
 }
 
 /*
 int main(void)
 {
-	char origin[50] = "Hello, World!";
-	char destination[50];
-	printf("Antes de ft_memcpy:\n");
-	printf("origin: %s\n", origin);
-	printf("destination: %s\n", destination);
-	ft_memcpy(destination, origin, 50);
-	printf("\nDespués de ft_memcpy:\n");
-	printf("origin: %s\n", origin);
-	printf("destination: %s\n", destination);
-	return (0);
+    char *result = ft_strmapi("1234", example_function);
+
+    if (result)
+    {
+        printf("Resultado: %s\n", result);
+        free(result);
+    }
+    else
+    {
+        printf("Error: ft_strmapi devolvió NULL\n");
+    }
+    return 0;
 }
 */

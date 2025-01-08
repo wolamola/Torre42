@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/27 15:20:42 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:36 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,18 @@ size_t	ft_strlcpy(char *d, const char *o, size_t dsize)
 	}
 	return (o_len);
 }
+
+/*
+int main(void)
+{
+	char o[] = "Hello, world!";
+	char d[10];
+
+	size_t len = ft_strlcpy(d, o, sizeof(d));
+	printf("Origen: %s\n", o);
+	printf("Destino: %s\n", d);
+	printf("Longitud del Origen: %zu\n", len);
+
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/12 15:25:08 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:28 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,14 @@ void	*ft_memmove(void *d, const void *o, size_t n)
 		ft_memcpy(de, or, n);
 	return (d);
 }
+
+/*
+int main(void)
+{
+	char str[50] = "Hello, world!";
+	printf("Antes de ft_memmove: %s\n", str);
+	ft_memmove(str + 6, str, 5);
+	printf("Después de ft_memmove: %s\n", str);
+	return (0);
+}
+*/

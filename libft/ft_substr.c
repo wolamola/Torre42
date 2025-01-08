@@ -1,49 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2025/01/08 15:40:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:41 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	size_t	str_length;
+	char	*substr;
+	size_t	counter;
 
-	p1 = (unsigned char *)ptr1;
-	p2 = (unsigned char *)ptr2;
-	while (n--)
+	if (s == NULL)
+		return (NULL);
+	str_length = ft_strlen(s);
+	if (start >= str_length)
+		return (ft_strdup(""));
+	if (len > str_length - start)
+		len = str_length - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (substr == NULL)
+		return (NULL);
+	counter = 0;
+	while (counter < len)
 	{
-		if (*p1 != *p2)
-		{
-			return (*p1 - *p2);
-		}
-		p1++;
-		p2++;
+		substr[counter] = s[start + counter];
+		counter++;
 	}
-	return (0);
+	substr[counter] = '\0';
+	return (substr);
 }
 
 /*
 int main(void)
 {
-	char str1[] = "Hola";
-	char str2[] = "Holb";
-
-	// Comparando los bloques de memoria
-	int result1 = ft_memcmp(str1, str2, 4);
-	int result2 = ft_memcmp(str1, str2, 4);
-
-	//Imprimir los resultados
-	printf("ft_memcmp result: %d\n", result1);
-	printf("ft_memcmp result: %d\n", result2);
+	printf("%s\n", ft_substr("HOLA PEPE QUE TAL ESTAS ESTA TARDE?", 8, 3));
 	return (0);
 }
 */

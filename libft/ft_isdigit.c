@@ -6,7 +6,7 @@
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2024/12/27 15:15:04 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:20 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,11 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
+
+/*
+int main(void)
+{
+	printf("ft_isdigit('1'): %d\n", ft_isdigit('1'));
+	return (0);
+}
+*/

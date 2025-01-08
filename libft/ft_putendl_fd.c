@@ -1,49 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcorcuer <hcorcuer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:11:21 by hcorcuer          #+#    #+#             */
-/*   Updated: 2025/01/08 15:40:07 by hcorcuer         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:35:30 by hcorcuer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
-
-	p1 = (unsigned char *)ptr1;
-	p2 = (unsigned char *)ptr2;
-	while (n--)
-	{
-		if (*p1 != *p2)
-		{
-			return (*p1 - *p2);
-		}
-		p1++;
-		p2++;
-	}
-	return (0);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 
 /*
 int main(void)
 {
-	char str1[] = "Hola";
-	char str2[] = "Holb";
+	int fd;
 
-	// Comparando los bloques de memoria
-	int result1 = ft_memcmp(str1, str2, 4);
-	int result2 = ft_memcmp(str1, str2, 4);
+	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd == -1)
+	{
+		write(2, "Error al abrir el archivo\n", 26);
+		return (1);
+	}
 
-	//Imprimir los resultados
-	printf("ft_memcmp result: %d\n", result1);
-	printf("ft_memcmp result: %d\n", result2);
+	ft_putendl_fd("Este es un mensaje con un salto de línea.", fd);
+
+	close(fd);
 	return (0);
 }
 */
